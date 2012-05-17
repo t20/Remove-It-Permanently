@@ -1,0 +1,12 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+
+
+#rip-toolbar-button {
+
+	list-style-image: url(chrome://rip/skin/rip.png);
+
+	-moz-image-region: rect(0 17px 16px 0);
+
+}
+

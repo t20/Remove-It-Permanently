@@ -1,0 +1,119 @@
+<!ENTITY popup-rip "Supprimer ceci définitivement">
+
+<!ENTITY popup-rip-iframe "Supprimer cette IFrame définitivement">
+
+<!ENTITY popup-rip-custom "RIP Options avancées">
+
+<!ENTITY popup-rip-this-page-only "Supprimer de cette page seulement">
+
+<!ENTITY popup-rip-all-similar-pages "Supprimer de toutes les pages semblables">
+
+<!ENTITY popup-rip-all-website "Supprimer de ce site Web">
+
+<!ENTITY popup-rip-all-domain "Supprimer de ce domaine">
+
+<!ENTITY popup-undo-rip "Annuler dernière action RIP">
+
+<!ENTITY rip-page-matched "La page correspond à :">
+
+<!ENTITY options-rip "Options...">
+
+<!ENTITY rip-summary-prompt "Nombre de XPath utilisés :">
+
+<!ENTITY rip-page-stats "Nombre d'éléments HTML enlevés :">
+
+<!ENTITY showall-rip "Montrez tous les éléments cachés">
+
+<!ENTITY undo-all-rips "Ne pas filtrer cette page">
+
+<!ENTITY publish-rip "Partagez">
+
+<!ENTITY subscribe-rip "Souscrivez">
+
+<!ENTITY rip-options "Options RIP">
+
+<!ENTITY rip-xpath-tooltip "Regardez le code source de la page afin de trouver les 'bons' attributs correspondants à des éléments multiples (Ex.: <b>class='ad'<b>, la syntaxe XPath est : //class='ad' )">
+
+<!ENTITY rip-xpath-highlight "Surligner">
+
+<!ENTITY rip-xpath-title "Utilisez cette fenêtre pour éditer les expressions XPath et prévisualiser le résultat">
+
+<!ENTITY rip-xpath-label "XPath:">
+
+<!ENTITY rip-xpath-label-comment "Commentaire:">
+
+<!ENTITY rip-url-label "Page à utiliser:">
+
+<!ENTITY rip-url-select "Affichage">
+
+<!ENTITY rip-options-title "Gérez vos filtres RIP">
+
+<!ENTITY rip-options-header "Utilisez cette fenêtre pour gérez vos filtres RIP">
+
+<!ENTITY rip-options-rips-caption "RIPs (Pages dont des éléments ont été supprimés) :">
+
+<!ENTITY rip-options-rips-remove "Supprimer filtre RIP">
+
+<!ENTITY rip-options-rips-export "Exporter filtres RIP ...">
+
+<!ENTITY rip-options-rips-import "Importer filtres RIP ...">
+
+<!ENTITY rip-options-rips-enable "Activer ce filtre RIP">
+
+<!ENTITY rip-options-rips-name "Nom:">
+
+<!ENTITY rip-options-rips-url "URL:">
+
+<!ENTITY rip-options-rips-description "Utilisez les jokers * dans l'URL pour faire correspondre plusieurs pages d'un même site (Ex.: *.yahoo.com)">
+
+<!ENTITY rip-options-rips-xpath-caption "Requêtes XPath pour filtrer des éléments à supprimer : ">
+
+<!ENTITY rip-options-rips-xpath-edit "Editez XPath ...">
+
+<!ENTITY rip-options-rips-xpath-add "Ajoutez XPath ...">
+
+<!ENTITY rip-options-rips-xpath-remove "Supprimer XPath">
+
+<!ENTITY rip-current-rips-label "Filtres RIP utilisés">
+
+<!ENTITY rip-preferences-label "Préférences">
+
+<!ENTITY rip-menu-preferences "Menu préférences">
+
+<!ENTITY rip-menu-preferences-editmenuUndo "Afficher l'option 'Annuler dernière action RIP'">
+
+<!ENTITY rip-menu-preferences-ripInsideIFrame "Autoriser RIP dans les IFrames">
+
+<!ENTITY rip-menu-preferences-ripInsideIFrameNote "Note : L'icône de statut ne signalera pas les éléments supprimés">
+
+<!ENTITY rip-menu-preferences-ripIframeOnFrameMenu "Afficher 'Supprimer cette IFrame définitivement' dans un menu séparé">
+
+<!ENTITY rip-menu-preferences-ripAdvancedMenu "Afficher 'RIP Options avancées' dans le menu contextuel">
+
+<!ENTITY rip-menu-preferences-separatorBeforeMenu "Ajouter un séparateur avant les options RIP du menu contextuel">
+
+<!ENTITY rip-menu-preferences-separatorAfterMenu "Ajoutez un séparateur après les options RIP du menu contextuel">
+
+<!ENTITY rip-menu-preferences-debugging "Préférences de débogage">
+
+<!ENTITY rip-menu-preferences-debugConsole "Montrez les messages d'erreur dans la console au lieu d'une fenêtre pop-up">
+
+<!ENTITY rip-menu-preferences-highlighter "Préférences de mise en valeur XPath (highlight)">
+
+<!ENTITY rip-menu-preferences-highlighter-borderColour "Couleur du cadre :">
+
+<!ENTITY rip-menu-preferences-highlighter-borderWidth "Largeur du cadre :">
+
+<!ENTITY rip-menu-preferences-highlighter-blinkDuration "Durée de clignotement :">
+
+<!ENTITY rip-menu-preferences-highlighter-blinkSpeed "Vitesse de clignotement :">
+
+<!ENTITY rip-menu-preferences-highlighter-blinkInvert "Clignotement inversé :">
+
+<!ENTITY rip-options-wiki-site "Cliquez ici pour plus d'informations">
+
+<!ENTITY download-popup-rip "Téléchargez RIP">
+
+<!ENTITY popup-rip-remove-all-iframes "Supprimer toutes les IFrames">
+
+<!ENTITY popup-rip-remove-google-adsense "Supprimer les publicités Google (AdSense)">

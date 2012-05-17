@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://rip/locale/rip.dtd">
+
+
+
+<overlay id="ripOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+
+
+ <script type="application/x-javascript" src="chrome://rip/content/rip.js"/>
+
+ <script type="application/x-javascript" src="chrome://rip/content/RipPrefUtils.js"/>
+
+ <script type="application/x-javascript" src="chrome://rip/content/RIPFlasher.js"/>
+
+
+
+ <popup id="contentAreaContextMenu">
+
+    <menuseparator id="rip-separater-beforemenu" insertbefore="context-sep-selectall,context-sep-stop,context-sep-copylink"  hidden="true"/>
+
+
+
+    <menuitem id="rip-do-add-popup" label="&popup-rip;" oncommand="RemoveItPermanently.doAddCurrentObject()" insertbefore="context-sep-selectall,context-sep-stop,context-sep-copylink"/>
+
+    <menuitem id="rip-do-add-frame-popup" label="&popup-rip-iframe;" oncommand="RemoveItPermanently.doAddCurrentFrame()"  insertbefore="context-sep-selectall,context-sep-stop,context-sep-copylink"/>
+
+    <menuitem id="menu_rip-undolast" label="&popup-undo-rip;" hidden="true" oncommand="RemoveItPermanently.doUndoLast()" insertbefore="context-sep-selectall,context-sep-stop,context-sep-copylink"/>
+
+    <menuitem id="rip-do-download-rip-popup" hidden="true" label="&download-popup-rip;" originalLabel="&download-popup-rip;" oncommand="RemoveItPermanently.downloadRIP()" insertbefore="context-sep-selectall,context-sep-stop,context-sep-copylink"/>
+
+    <menu id="rip-menu-custom" label="&popup-rip-custom;" insertbefore="context-sep-selectall,context-sep-stop,context-sep-copylink" hidden="true">
+
+        <menupopup>
+
+          <menuitem id="rip-url-this-page"   name="rip-url" checked="true" autocheck="true" label="&popup-rip-this-page-only;" type="radio"  oncommand="RemoveItPermanently.doChangeURL(this);" reallabel="&popup-rip-this-page-only;"/>
+
+          <menuitem id="rip-url-all-similar" name="rip-url" autocheck="true" label="&popup-rip-all-similar-pages;"  type="radio"  oncommand="RemoveItPermanently.doChangeURL(this);"/>
+
+          <menuitem id="rip-url-all-website" name="rip-url" autocheck="true" label="&popup-rip-all-website;"  type="radio"  oncommand="RemoveItPermanently.doChangeURL(this);"/>
+
+          <menuitem id="rip-url-all-domain"  name="rip-url" autocheck="true" label="&popup-rip-all-domain;"  type="radio" oncommand="RemoveItPermanently.doChangeURL(this);"/>
+
+          <menuseparator/>
+
+          <menuitem id="rip-url-xpath-1" label="1" oncommand="RemoveItPermanently.doAddXPath(this);"/>
+
+          <menuitem id="rip-url-xpath-2" label="2" oncommand="RemoveItPermanently.doAddXPath(this);"/>
+
+          <menuitem id="rip-url-xpath-3" label="3" oncommand="RemoveItPermanently.doAddXPath(this);"/>
+
+          <menuitem id="rip-url-xpath-4" label="4" oncommand="RemoveItPermanently.doAddXPath(this);"/>
+
+          <menuseparator/>
+
+          <menuitem id="rip-url-remove-all-iframes" label="&popup-rip-remove-all-iframes;" oncommand="RemoveItPermanently.doAddXPath(this);"/>
+
+          <menuitem id="rip-url-remove-google-adsense" label="&popup-rip-remove-google-adsense;" oncommand="RemoveItPermanently.doAddXPath(this);"/>
+
+          <menuseparator/>
+
+          <menuitem label="&rip-options;" oncommand="RemoveItPermanently.doOptions()"/>
+
+        </menupopup>
+
+    </menu>
+
+    <menuseparator id="rip-separater-aftermenu" insertbefore="context-sep-selectall,context-sep-stop,context-sep-copylink"  hidden="true"/>
+
+ </popup>
+
+ 
+
+ <menupopup id="menu_EditPopup">
+
+    <menuitem id="menu_rip-edit-undolast" label="&popup-undo-rip;" hidden="true" oncommand="RemoveItPermanently.doUndoLast()"/>
+
+ </menupopup>
+
+
+
+ <menupopup id="menu_ToolsPopup">
+
+    <menuitem id="rip_menu_options" label="&rip-options;" oncommand="RemoveItPermanently.doOptions()"/>
+
+ </menupopup>
+
+
+
+ <menupopup id="taskPopup">
+
+    <menuitem id="rip_menu_options"  label="&rip-options;" insertafter="downloadmgr"  oncommand="RemoveItPermanently.doOptions()" />
+
+ </menupopup>
+
+
+
+ <statusbar id="status-bar">
+
+   <hbox>
+
+     <tooltip orient="vertical" id="rip-tooltip" onpopupshowing="RemoveItPermanently.fillInTooltip(this)">
+
+       <vbox id="rip-tooltip-vbox" collapsed="true">
+
+           <hbox align="center">
+
+             <description style="margin-right:0px" value="&rip-summary-prompt;"/>
+
+             <description style="margin-right:0px; margin-left:0px; font-weight:bold;"
+
+                        id="rip-tooltip-ripped-count" value="0"/>
+
+           </hbox>
+
+           <hbox align="center">
+
+             <description style="margin-right:0px" value="&rip-page-matched;"/>
+
+             <description style="margin-right:0px; margin-left:0px; font-weight:bold;"
+
+                        id="rip-tooltip-page-matched" value=""/>
+
+           </hbox>
+
+           <hbox align="center">
+
+             <description style="margin-right:0px" value="&rip-page-stats;"/>
+
+             <description style="margin-right:0px; margin-left:0px; font-weight:bold;"
+
+                        id="rip-tooltip-page-stats" value=""/>
+
+           </hbox>
+
+         </vbox>
+
+       </tooltip>
+
+   </hbox>
+
+
+
+   <statusbarpanel context="rip-context-menu"
+
+                   id="rip-status-bar" class="statusbarpanel-menu-iconic" src="chrome://rip/skin/rip.png" hidden="true" 
+
+                   tooltip="rip-tooltip" oncommand="RemoveItPermanently.doOptions()">
+
+   </statusbarpanel>
+
+     <menupopup id="rip-context-menu">
+
+        <menuitem label="&showall-rip;" oncommand="RemoveItPermanently.showAll()"/>
+
+        <menuitem label="&undo-all-rips;" oncommand="RemoveItPermanently.doUndoAll()"/>
+
+        <menuseparator/>
+
+        <menuitem label="&options-rip;" oncommand="RemoveItPermanently.doOptions()"/>
+
+      </menupopup>
+
+ </statusbar>
+
+</overlay>

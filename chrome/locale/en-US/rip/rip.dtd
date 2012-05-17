@@ -1,0 +1,120 @@
+<!ENTITY popup-rip "Remove this permanently">
+
+<!ENTITY popup-rip-iframe "Remove IFrame permanently">
+
+<!ENTITY popup-rip-custom "RIP Advanced">
+
+<!ENTITY popup-rip-this-page-only "Remove from this page only">
+
+<!ENTITY popup-rip-all-similar-pages "Remove from all similar pages">
+
+<!ENTITY popup-rip-all-website "Remove from this website">
+
+<!ENTITY popup-rip-all-domain "Remove from this domain">
+
+<!ENTITY popup-undo-rip "Undo last RIP">
+
+<!ENTITY rip-page-matched "Page matched with:">
+
+<!ENTITY options-rip "Options...">
+
+<!ENTITY rip-summary-prompt "Number of XPath used:">
+
+<!ENTITY rip-page-stats "Number html elements matched and removed:">
+
+<!ENTITY showall-rip "Display all hidden items">
+
+<!ENTITY undo-all-rips "Don't rip this page">
+
+<!ENTITY publish-rip "Publish">
+
+<!ENTITY subscribe-rip "Subscribe">
+
+<!ENTITY rip-options "RIP Options">
+
+<!ENTITY rip-xpath-tooltip "Use view page source to find good attributes which would identify multiple areas for example, <b>class='ad'<b> then use xpath syntax like //class='ad' ">
+
+<!ENTITY rip-xpath-highlight "Highlight">
+
+<!ENTITY rip-xpath-title "Use this screen to edit the XPath expression and test the result">
+
+<!ENTITY rip-xpath-label "XPath:">
+
+<!ENTITY rip-xpath-label-comment "Comment:">
+
+<!ENTITY rip-url-label "Page to use:">
+
+<!ENTITY rip-url-select "Display">
+
+<!ENTITY rip-options-title "Manage Rips">
+
+<!ENTITY rip-options-header "Use this screen to manage your RIP's">
+
+<!ENTITY rip-options-rips-caption "RIPs (Pages with content removed) :">
+
+<!ENTITY rip-options-rips-remove "Remove Rip">
+
+<!ENTITY rip-options-rips-export "Export Rip ...">
+
+<!ENTITY rip-options-rips-import "Import Rip ...">
+
+<!ENTITY rip-options-rips-enable "Enabled this RIP">
+
+<!ENTITY rip-options-rips-name "Name:">
+
+<!ENTITY rip-options-rips-url "URL:">
+
+<!ENTITY rip-options-rips-description "Note: use wildcards * within URL to match multiple pages on a site. Eg. *.yahoo.com">
+
+<!ENTITY rip-options-rips-xpath-caption "XPath queries to find content to remove: ">
+
+<!ENTITY rip-options-rips-xpath-edit "Edit XPath ...">
+
+<!ENTITY rip-options-rips-xpath-add "Add XPath ...">
+
+<!ENTITY rip-options-rips-xpath-remove "Remove XPath">
+
+<!ENTITY rip-current-rips-label "Current RIPs">
+
+<!ENTITY rip-preferences-label "Preferences">
+
+<!ENTITY rip-menu-preferences "Menu Preferences">
+
+<!ENTITY rip-menu-preferences-editmenuUndo "Show edit menu 'Undo Last RIP'">
+
+<!ENTITY rip-menu-preferences-ripInsideIFrame "Allow RIP inside IFrame.">
+
+<!ENTITY rip-menu-preferences-ripInsideIFrameNote "Note: Status Icon won't show removed content">
+
+<!ENTITY rip-menu-preferences-ripIframeOnFrameMenu "Show 'Remove IFrame Permanently' on separate Frame Menu">
+
+<!ENTITY rip-menu-preferences-ripAdvancedMenu "Show 'RIP Advanced' on Context Menu">
+
+<!ENTITY rip-menu-preferences-separatorBeforeMenu "Add a Separator before RIP on Context menu">
+
+<!ENTITY rip-menu-preferences-separatorAfterMenu "Add a Separator after RIP on Context menu">
+
+<!ENTITY rip-menu-preferences-debugging "Debugging Preferences">
+
+<!ENTITY rip-menu-preferences-debugConsole "Show error messages in Console window instead of Popup window">
+
+<!ENTITY rip-menu-preferences-highlighter "XPath Highlighter Preferences">
+
+<!ENTITY rip-menu-preferences-highlighter-borderColour "Border Colour:">
+
+<!ENTITY rip-menu-preferences-highlighter-borderWidth "Border Width:">
+
+<!ENTITY rip-menu-preferences-highlighter-blinkDuration "Blink Duration:">
+
+<!ENTITY rip-menu-preferences-highlighter-blinkSpeed "Blink Speed:">
+
+<!ENTITY rip-menu-preferences-highlighter-blinkInvert "Blink Invert:">
+
+<!ENTITY rip-options-wiki-site "Click here to find more">
+
+<!ENTITY download-popup-rip "Download RIP">
+
+<!ENTITY popup-rip-remove-all-iframes "Remove All IFrames">
+
+<!ENTITY popup-rip-remove-google-adsense "Remove Google AdSense">
+

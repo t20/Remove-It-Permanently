@@ -1,0 +1,120 @@
+<!ENTITY popup-rip "Rimuovi questo per sempre">
+
+<!ENTITY popup-rip-iframe "Rimuovi IFrame per sempre">
+
+<!ENTITY popup-rip-custom "RIP Avanzato">
+
+<!ENTITY popup-rip-this-page-only "Rimuovi solo da questa pagina">
+
+<!ENTITY popup-rip-all-similar-pages "Rimuovi da tutte le pagine simili">
+
+<!ENTITY popup-rip-all-website "Rimuovi da questo sito">
+
+<!ENTITY popup-rip-all-domain "Rimuovi da questo dominio">
+
+<!ENTITY popup-undo-rip "Annulla ultimo RIP">
+
+<!ENTITY rip-page-matched "Pagina abbinata con:">
+
+<!ENTITY options-rip "Opzioni...">
+
+<!ENTITY rip-summary-prompt "Numero di XPath usati:">
+
+<!ENTITY rip-page-stats "Numero di elementi html riscontrati e rimossi:">
+
+<!ENTITY showall-rip "Visualizza tutti gli oggetti nascosti">
+
+<!ENTITY undo-all-rips "Nessun rip per questa pagina">
+
+<!ENTITY publish-rip "Pubblica">
+
+<!ENTITY subscribe-rip "Sottoscrivi">
+
+<!ENTITY rip-options "Opzioni di RIP">
+
+<!ENTITY rip-xpath-tooltip "Utilizza visualizza sorgente pagina per trovare attributi buoni che potrebbero identificare aree multiple per esempio, <b>class='ad'<b> dunque utilizza sintassi xpath come //class='ad' ">
+
+<!ENTITY rip-xpath-highlight "Evidenzia">
+
+<!ENTITY rip-xpath-title "Usa questa schermata per modificare l' espressione XPath e testare il risultato">
+
+<!ENTITY rip-xpath-label "XPath:">
+
+<!ENTITY rip-xpath-label-comment "Comment:">
+
+<!ENTITY rip-url-label "Pagina da utilizzare:">
+
+<!ENTITY rip-url-select "Visualizza">
+
+<!ENTITY rip-options-title "Gestione Rip">
+
+<!ENTITY rip-options-header "Usa questa schermata per gestire i tuoi RIP">
+
+<!ENTITY rip-options-rips-caption "RIP (Pagine con contenuti rimossi) :">
+
+<!ENTITY rip-options-rips-remove "Rimuovi Rip">
+
+<!ENTITY rip-options-rips-export "Esporta Rip ...">
+
+<!ENTITY rip-options-rips-import "Importa Rip ...">
+
+<!ENTITY rip-options-rips-enable "Abilita questo RIP">
+
+<!ENTITY rip-options-rips-name "Nome:">
+
+<!ENTITY rip-options-rips-url "URL:">
+
+<!ENTITY rip-options-rips-description "Note: utilizza asterischi * dentro un URL per abbinare pi&#249; pagine su un sito. Es. *.yahoo.com">
+
+<!ENTITY rip-options-rips-xpath-caption "richieste XPath per trovare contenuto da rimuovere: ">
+
+<!ENTITY rip-options-rips-xpath-edit "Modifica XPath ...">
+
+<!ENTITY rip-options-rips-xpath-add "Aggiungi XPath ...">
+
+<!ENTITY rip-options-rips-xpath-remove "Rimuovi XPath">
+
+<!ENTITY rip-current-rips-label "RIP attuali">
+
+<!ENTITY rip-preferences-label "Preferenze">
+
+<!ENTITY rip-menu-preferences "Preferenze Menu">
+
+<!ENTITY rip-menu-preferences-editmenuUndo "Mostra 'Annulla ultimo RIP' nel menu Modifica">
+
+<!ENTITY rip-menu-preferences-ripInsideIFrame "Permetti RIP dentro un IFrame.">
+
+<!ENTITY rip-menu-preferences-ripInsideIFrameNote "Nota: L' Icona di Stato non visualizzer&#224; il contenuto rimosso">
+
+<!ENTITY rip-menu-preferences-ripIframeOnFrameMenu "Mostra 'Rimuovi IFrame per sempre' in un frame separato">
+
+<!ENTITY rip-menu-preferences-ripAdvancedMenu "Mostra 'RIP Avanzato' nel menu contestuale">
+
+<!ENTITY rip-menu-preferences-separatorBeforeMenu "Aggiungi un Separatore prima di RIP nel menu contestuale">
+
+<!ENTITY rip-menu-preferences-separatorAfterMenu "Aggiungi un Separatore dopo RIP nel menu contestuale">
+
+<!ENTITY rip-menu-preferences-debugging "Preferenze per il debug">
+
+<!ENTITY rip-menu-preferences-debugConsole "Mostra messaggi di errore nella finestra di Console invece che in una finestra Popup">
+
+<!ENTITY rip-menu-preferences-highlighter "Preferenze Evidenziatore XPath">
+
+<!ENTITY rip-menu-preferences-highlighter-borderColour "Colore del bordo:">
+
+<!ENTITY rip-menu-preferences-highlighter-borderWidth "Larghezza del bordo:">
+
+<!ENTITY rip-menu-preferences-highlighter-blinkDuration "Durata del lampeggio:">
+
+<!ENTITY rip-menu-preferences-highlighter-blinkSpeed "Velocit&#224; del lampeggio:">
+
+<!ENTITY rip-menu-preferences-highlighter-blinkInvert "Inverti lampeggio:">
+
+<!ENTITY rip-options-wiki-site "Fare clic qui per altro">
+
+<!ENTITY download-popup-rip "Trasferimento Rip">
+
+<!ENTITY popup-rip-remove-all-iframes "Rimuovi 'IFrames'">
+
+<!ENTITY popup-rip-remove-google-adsense "Rimuovi 'Google AdSense'">
+

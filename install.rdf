@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+
+
+  <Description about="urn:mozilla:install-manifest">
+
+    <em:id>{1dbc4a33-ea62-4330-966c-7bdad3455322}</em:id>
+
+    <em:version>1.0.6.10</em:version>
+    
+    <em:type>2</em:type>
+
+    <em:creator>Jerome O'Flaherty</em:creator>
+
+    <em:contributor>Philipp Madersbacher philippmad@gmx.at - German Translation</em:contributor>
+
+    <em:contributor>Adrien Clerc hermes1983@free.fr - French Translation</em:contributor>
+
+    <em:contributor>Hook uncino@quipo.it - Italian Translation</em:contributor>
+
+    <em:contributor>scotty@tlen.pl - Some help with the options dialog </em:contributor>
+
+    <em:contributor>Paul Dowling paul@dowling.id.au - Better RIP Icon</em:contributor>
+
+    <em:contributor>The Beautiful people on Mozillazine and ExtensionsMirror for their suggestions</em:contributor>
+
+    <em:description>Permanently hide items from the Context Menu</em:description>
+
+    <em:homepageURL>http://rip.mozdev.org/</em:homepageURL>
+
+    <em:iconURL>chrome://rip/skin/rip.png</em:iconURL>
+    
+    <em:unpack>true</em:unpack>
+
+    <em:targetApplication>
+
+      <Description>
+
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+
+        <em:minVersion>3.0</em:minVersion>
+
+        <em:maxVersion>4.0.*</em:maxVersion>
+
+      </Description>
+
+    </em:targetApplication>
+
+    <em:name>Remove It Permanently</em:name>
+
+    <em:optionsURL>chrome://rip/content/rip-options.xul</em:optionsURL>
+
+  </Description>
+
+</RDF>

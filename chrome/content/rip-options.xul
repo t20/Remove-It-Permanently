@@ -1,0 +1,1571 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://rip/locale/rip.dtd">
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<?xul-overlay href="chrome://rip/content/rip-overlay.xul"?>
+
+
+
+<dialog id="rip-options-dialog" title="&rip-options-title;"
+
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+
+        xmlns:html="http://www.w3.org/1999/xhtml"
+
+        buttons="accept,cancel"
+
+        persist="screenX screenY width height"
+
+        style="padding:1em;"
+
+        onload="load();"
+
+        ondialogaccept="return doOK();"
+
+        ondialogcancel="return doCancel();">
+
+    <dialogheader id="ctlHeader" title="&rip-options-header;" />
+
+
+
+<tabcontrol flex="1">
+
+	<tabbox flex="1">
+
+ <tabs>
+
+  <tab label="&rip-current-rips-label;" selected="true"/>
+
+  <tab label="&rip-preferences-label;"/>
+
+ </tabs>
+
+ <tabpanels flex="1">
+
+  <tabpanel id="rips" orient="vertical">
+
+     <grid flex="1">
+
+        <columns>
+
+            <column/>
+
+            <column flex="1"/>
+
+        </columns>
+
+       <rows>
+
+       <row flex="1">
+
+            <groupbox>
+
+                <caption label="&rip-options-rips-caption;" />
+
+			 <listbox id="listRIPs" seltype="single" style="width:auto; min-width:100px; max-width: 300px; margin-top:0" flex="1" onselect="doRipSelect()">
+
+                 </listbox>
+
+            <hbox>
+
+                    <button id="btnRemoveRip" label="&rip-options-rips-remove;" style="margin-top:1em" disabled="true" oncommand="doRemoveRip()"/>
+
+                    <button id="btnExportRip" label="&rip-options-rips-export;" style="margin-top:1em"  disabled="true" oncommand="doExportRip()"/>
+
+                    <button id="btnImportRip" label="&rip-options-rips-import;" style="margin-top:1em"
+
+oncommand="doImportRip()"/>
+
+           </hbox>
+
+            <hbox>
+
+                <html:a href="javascript:doOpenWiki()" style="padding-left:4px; display: block;" >&rip-options-wiki-site;</html:a>
+
+            </hbox>
+
+             </groupbox>
+
+            <groupbox>
+
+                <caption>
+
+                    <checkbox id="ripEnabled" label="&rip-options-rips-enable;" checked="true"  oncommand="doRipEnabledChecked()"/>
+
+                </caption>
+
+                 <hbox>
+
+               <label control="rip-name" value="&rip-options-rips-name;"/>
+
+               <textbox id="rip-name" style="width:auto; min-width:130px;"  flex="1"  disabled="true" oninput="onRipNameChanged();"/>
+
+                </hbox>
+
+                 <hbox>
+
+               <label control="rip-url" value="&rip-options-rips-url;" />
+
+               <textbox id="rip-url" style="width:auto; min-width:160px;" flex="1"  disabled="true"  oninput="onRipURLChanged();"/>
+
+                </hbox>
+
+                <description>&rip-options-rips-description;</description>
+
+            <groupbox flex="1">
+
+                <caption label="&rip-options-rips-xpath-caption;">
+
+                </caption>
+
+			 <listbox id="ripListXPaths" style="width:auto; min-width:200px;" flex="1" disabled="true" onselect="doXPathSelect( )">
+
+                 </listbox>
+
+                <hbox>
+
+                    <button id="btnEditXPath" label="&rip-options-rips-xpath-edit;" style="margin-top:1em"   disabled="true" onclick="doEditXPath()"/>
+
+                    <button id="btnAddXPath" label="&rip-options-rips-xpath-add;" style="margin-top:1em"   disabled="true" onclick="doAddXPath()"/>
+
+                    <button id="btnRemoveXPath" label="&rip-options-rips-xpath-remove;" style="margin-top:1em"  disabled="true" onclick="doDeleteXPath()"/>
+
+                </hbox>
+
+              </groupbox>
+
+            </groupbox>
+
+          </row>
+
+     </rows>
+
+    </grid>
+
+  </tabpanel>
+
+  <tabpanel id="preferences" orient="vertical">
+
+     <grid flex="1">
+
+        <columns>
+
+            <column/>
+
+            <column flex="1"/>
+
+        </columns>
+
+       <rows>
+
+       <row>
+
+      <vbox>
+
+       <groupbox>
+
+		<caption label="&rip-menu-preferences;"/>
+
+		<vbox flex="1">
+
+			<hbox>
+
+				<description value="&rip-menu-preferences-editmenuUndo;"/>
+
+				<spacer flex="1"/>
+
+				<checkbox id="editmenuUndo"/>
+
+			</hbox>
+
+
+
+			<hbox>
+
+				<description value="&rip-menu-preferences-ripInsideIFrame;"/>
+
+				<description value="&rip-menu-preferences-ripInsideIFrameNote;"/>
+
+				<spacer flex="1"/>
+
+				<checkbox id="ripInsideIFrame" />
+
+			</hbox>
+
+			<hbox>
+
+				<description value="&rip-menu-preferences-ripIframeOnFrameMenu;"/>
+
+				<spacer flex="1"/>
+
+				<checkbox id="iframeOnFrameMenu" />
+
+			</hbox>
+
+			<hbox>
+
+				<description value="&rip-menu-preferences-ripAdvancedMenu;"/>
+
+				<spacer flex="1"/>
+
+				<checkbox id="ripAdvancedMenu" />
+
+			</hbox>
+
+
+
+			<hbox>
+
+				<description value="&rip-menu-preferences-separatorBeforeMenu;"/>
+
+				<spacer flex="1"/>
+
+				<checkbox id="separaterBeforeMenu"/>
+
+			</hbox>
+
+
+
+			<hbox>
+
+				<description value="&rip-menu-preferences-separatorAfterMenu;"/>
+
+				<spacer flex="1"/>
+
+				<checkbox id="separaterAfterMenu"/>
+
+			</hbox>
+
+
+
+		</vbox>
+
+
+
+	</groupbox>
+
+
+
+	<groupbox>
+
+		<caption label="&rip-menu-preferences-debugging;"/>
+
+		<vbox flex="1">
+
+			<hbox>
+
+				<description value="&rip-menu-preferences-debugConsole;"/>
+
+				<spacer flex="1"/>
+
+				<checkbox id="debugConsole" />
+
+			</hbox>
+
+
+
+		</vbox>
+
+
+
+	</groupbox>
+
+       </vbox>
+
+	<groupbox>
+
+		<caption label="&rip-menu-preferences-highlighter;"/>
+
+		<vbox flex="1">
+
+			<hbox>
+
+				<description value="&rip-menu-preferences-highlighter-borderColour;"/>
+
+				<spacer flex="1"/>
+
+                <colorpicker id="borderColour" type="button" style="max-width:4em"  flex="0"/>
+
+			</hbox>
+
+
+
+			<hbox>
+
+				<description value="&rip-menu-preferences-highlighter-borderWidth;"/>
+
+				<spacer flex="1"/>
+
+				<textbox id="borderWidth"  style="max-width:4em" />
+
+			</hbox>
+
+
+
+			<hbox>
+
+				<description value="&rip-menu-preferences-highlighter-blinkDuration;"/>
+
+				<spacer flex="1"/>
+
+				<textbox id="blinkDuration" style="max-width:4em"  />
+
+			</hbox>
+
+
+
+			<hbox>
+
+				<description value="&rip-menu-preferences-highlighter-blinkSpeed;"/>
+
+				<spacer flex="1"/>
+
+				<textbox id="blinkSpeed"  style="max-width:4em" />
+
+			</hbox>
+
+
+
+			<hbox>
+
+				<description value="&rip-menu-preferences-highlighter-blinkInvert;"/>
+
+				<spacer flex="1"/>
+
+				<checkbox id="blinkInvert" />
+
+			</hbox>
+
+
+
+		</vbox>
+
+
+
+	</groupbox>
+
+          </row>
+
+     </rows>
+
+    </grid>
+
+
+
+  </tabpanel>
+
+ </tabpanels>
+
+</tabbox>
+
+</tabcontrol>
+
+<script>
+
+<![CDATA[
+
+var boolDirty = false;
+
+var localRipCache = null;
+
+var currentRipPage = null;
+
+var globalSelectedItem = null;
+
+var globalTimerId = null;
+
+
+
+function load()
+
+{
+
+    var pageObj = null;
+
+    var theRipCache = null;
+
+
+
+    // If we have been loaded from the Rip options then we have been given the cache to work with!
+
+    if (window.arguments != undefined)
+
+    {
+
+        theRipCache = window.arguments[0];
+
+    }
+
+
+
+    // If we have been loaded from the Extensions option popup we have no parameters
+
+    // so we use the standard load script to load the cache from the config file.
+
+    if (theRipCache == null)
+
+    {
+
+        theRipCache = RemoveItPermanently.load();
+
+    }
+
+
+
+    // What Cache we are given we make a temporary copy of it -- Revisit later to make this a bit more logical
+
+    if (theRipCache != null)
+
+    {
+
+        var pageURL = null;
+
+
+
+        if (window.arguments != undefined && window.arguments.length > 1)
+
+        {
+
+           pageURL = window.arguments[1];
+
+        }
+
+
+
+        localRipCache = loadIntoWindow(theRipCache, pageURL);    // Load this cache into the XUL dialog and return a copy of the cache
+
+    }
+
+
+
+    if (localRipCache == null)
+
+    {
+
+       RemoveItPermanently.debugMessage("Failed to load Preferences!");
+
+    }
+
+
+
+    loadBoolSetting( "editmenuUndo", "rip.editmenu.undo");
+
+    loadBoolSetting( "separaterBeforeMenu", "rip.separaterbefore.menu" );
+
+    loadBoolSetting( "separaterAfterMenu", "rip.separaterafter.menu");
+
+    loadBoolSetting( "ripInsideIFrame", "rip.allow.inside.iframes");
+
+    loadBoolSetting( "iframeOnFrameMenu", "rip.iframe.on.framemenu");
+
+    loadBoolSetting( "ripAdvancedMenu", "rip.advanced.context.menu");
+
+    loadBoolSetting( "debugConsole", "rip.debug.alert");
+
+    loadBoolSetting( "blinkInvert", "rip.blink.invert");
+
+
+
+    loadSetting( "borderColour", "rip.blink.border-color");
+
+    loadSetting( "borderWidth", "rip.blink.border-width");
+
+    loadSetting( "blinkDuration", "rip.blink.duration");
+
+    loadSetting( "blinkSpeed", "rip.blink.speed");
+
+
+
+    window.sizeToContent();
+
+}
+
+
+
+function loadIntoWindow(ripCache, selectedPageURL)
+
+{
+
+    var resultingCache = new Array();
+
+    var listRIPs =  document.getElementById("listRIPs");
+
+
+
+    // First remove any we might have - since this routine will be called from import also!
+
+    while(listRIPs.hasChildNodes())
+
+    {
+
+        listRIPs.removeChild(listRIPs.childNodes[0]);
+
+    }
+
+
+
+    for (var i = 0, pageObj = null; (pageObj = ripCache[i]); i++)
+
+    {
+
+        if (pageObj != null)
+
+        {
+
+            var newItem = listRIPs.appendItem(pageObj.name, pageObj.url);
+
+            newItem.setAttribute("tooltiptext", pageObj.url);
+
+
+
+            if (selectedPageURL != null)
+
+            {
+
+                if (pageObj.url == selectedPageURL)
+
+                {
+
+                    globalSelectedItem = newItem;
+
+			        globalTimerId = window.setInterval(timedSelectItem, 200);
+
+                }
+
+            }
+
+
+
+            var newPage = copyPageDetails(pageObj);
+
+
+
+            resultingCache.push(newPage);
+
+        }
+
+   }
+
+
+
+   return resultingCache;
+
+}
+
+
+
+function timedSelectItem()
+
+{
+
+   if (globalSelectedItem)
+
+   {
+
+        var listRIPs =  document.getElementById("listRIPs");
+
+        listRIPs.selectedItem = globalSelectedItem;
+
+   }
+
+
+
+   window.clearInterval(globalTimerId);
+
+}
+
+
+
+function copyPageDetails(pageToCopy)
+
+{
+
+   var pageResult = new RipPage();
+
+
+
+   pageResult.name = pageToCopy.name;
+
+   pageResult.url = pageToCopy.url;
+
+   pageResult.enabled = pageToCopy.enabled;
+
+
+
+   pageResult.itemsToRemove = new Array();
+
+   for (var j = 0; j < pageToCopy.itemsToRemove.length; j++)
+
+   {
+
+       pageResult.itemsToRemove.push(pageToCopy.itemsToRemove[j]);
+
+       try
+
+       {
+
+            pageResult.itemsComment.push(pageToCopy.itemsComment[j]);
+
+       }
+
+       catch (e) {};
+
+   }
+
+
+
+   return pageResult;
+
+}
+
+
+
+function onRipURLChanged()
+
+{
+
+    var ripurl =  document.getElementById("rip-url");
+
+
+
+    currentRipPage.url = ripurl.value;
+
+
+
+    setDirtyFlag();
+
+
+
+    // If the url changes we need to update the name in the current list of rips
+
+    var list = document.getElementById("listRIPs");
+
+    if (list.selectedItem != null)
+
+    {
+
+        list.selectedItem.value = ripurl.value;
+
+        list.selectedItem.setAttribute("tooltiptext", ripurl.value);
+
+    }
+
+}
+
+
+
+function onRipNameChanged()
+
+{
+
+    var ripname =  document.getElementById("rip-name");
+
+
+
+    currentRipPage.name = ripname.value;
+
+
+
+    // If the name changes we need to update the name in the current list of rips
+
+    var list = document.getElementById("listRIPs");
+
+    if (list.selectedItem != null)
+
+    {
+
+        list.selectedItem.label = ripname.value;
+
+    }
+
+
+
+    setDirtyFlag();
+
+}
+
+
+
+function doRipSelect()
+
+{
+
+    var list = document.getElementById("listRIPs");
+
+    if (list.selectedItem != null)
+
+    {
+
+         var selectedRIP = list.selectedItem.getAttribute("tooltiptext");
+
+         if (selectedRIP != null)
+
+         {
+
+            doLoadRipDetails(selectedRIP);
+
+         }
+
+    }
+
+
+
+    doRipEnabledChecked();
+
+
+
+    enableRipButtons();
+
+
+
+}
+
+
+
+function doXPathSelect()
+
+{
+
+    var list =  document.getElementById("ripListXPaths");
+
+     if ( list.selectedItem != null)
+
+    {
+
+        enableButton("btnEditXPath");
+
+        enableButton("btnRemoveXPath");
+
+    }
+
+    else
+
+    {
+
+        disableButton("btnEditXPath");
+
+        disableButton("btnRemoveXPath");
+
+    }
+
+}
+
+
+
+function enableRipButtons()
+
+{
+
+    var list =  document.getElementById("listRIPs");
+
+     if ( list.selectedItem != null)
+
+    {
+
+        enableButton("btnExportRip");
+
+        enableButton("btnRemoveRip");
+
+        enableButton("btnAddXPath");
+
+    }
+
+    else
+
+    {
+
+        disableButton("btnExportRip");
+
+        disableButton("btnRemoveRip");
+
+        disableButton("btnAddXPath");
+
+    }
+
+}
+
+
+
+function enableButton(buttonID)
+
+{
+
+    var button =  document.getElementById(buttonID);
+
+    button.disabled=false;
+
+}
+
+
+
+function disableButton(buttonID)
+
+{
+
+    var button =  document.getElementById(buttonID);
+
+    button.disabled=true;
+
+}
+
+
+
+function doRipEnabledChecked()
+
+{
+
+    var checkBox =  document.getElementById("ripEnabled");
+
+    var changed = false;
+
+    if (!checkBox.checked)
+
+   {
+
+       disableButton("rip-name");
+
+       disableButton("rip-url");
+
+       disableButton("ripListXPaths");
+
+       if (currentRipPage != null)
+
+       {
+
+            changed = (currentRipPage.enabled == true);
+
+            currentRipPage.enabled = false;
+
+       }
+
+   }
+
+   else
+
+    {
+
+       enableButton("rip-name");
+
+       enableButton("rip-url");
+
+       enableButton("ripListXPaths");
+
+       if (currentRipPage != null)
+
+       {
+
+           changed = (currentRipPage.enabled == false);
+
+           currentRipPage.enabled = true;
+
+        }
+
+    }
+
+    if (changed)
+
+    {
+
+       setDirtyFlag();
+
+    }
+
+}
+
+
+
+function doRemoveRip()
+
+{
+
+    var list =  document.getElementById("listRIPs");
+
+
+
+    var urlToRemove = list.selectedItem.value;
+
+
+
+    // Get Index into local cache from url;
+
+    var pageIndexToRemove = getIndexOfUrl(urlToRemove);
+
+
+
+    // Remove from the ListBox
+
+    list.removeItemAt(list.selectedIndex);
+
+
+
+    if (pageIndexToRemove >= 0)
+
+    {
+
+        // Remove from the cache.
+
+        localRipCache.splice(pageIndexToRemove, 1);
+
+
+
+        // Something has changed
+
+        setDirtyFlag();
+
+        // Enable appropriate buttons
+
+        enableRipButtons();
+
+    }
+
+}
+
+
+
+function doImportRip()
+
+{
+
+   var nsIFilePicker = Components.interfaces.nsIFilePicker;
+
+   var fp = Components.classes["@mozilla.org/filepicker;1"]
+
+             .createInstance(nsIFilePicker);
+
+    fp.init(window, "Select a RIP File to import", nsIFilePicker.modeOpen);
+
+    fp.appendFilter("RIP Files","*.rip; *.xml");
+
+    var res = fp.show();
+
+    if (res == nsIFilePicker.returnOK)
+
+    {
+
+       var theFile = fp.file;
+
+
+
+       boolDirty = true;
+
+
+
+       RemoveItPermanently.loadFile(localRipCache, theFile);
+
+
+
+       // Call the standard load to load the update cache into dialog
+
+       loadIntoWindow(localRipCache, null);
+
+     }
+
+}
+
+
+
+function doExportRip()
+
+{
+
+     var nsIFilePicker = Components.interfaces.nsIFilePicker;
+
+     var fp = Components.classes["@mozilla.org/filepicker;1"]
+
+             .createInstance(nsIFilePicker);
+
+     fp.init(window, "Enter the name of the RIP File to export", nsIFilePicker.modeSave);
+
+     fp.appendFilter("RIP Files","*.rip; *.xml");
+
+     var res = fp.show();
+
+     if (res == nsIFilePicker.returnOK)
+
+     {
+
+       var thefile = fp.file;
+
+       var list = document.getElementById("listRIPs");
+
+
+
+       if (list.selectedItem != null)
+
+       {
+
+           var indexOfPage = getIndexOfUrl(list.selectedItem.value);
+
+           if (indexOfPage >= 0)
+
+           {
+
+               var selectedPage = localRipCache[indexOfPage];
+
+
+
+               RemoveItPermanently.savePage(selectedPage, thefile);
+
+           }
+
+       }
+
+     }
+
+}
+
+
+
+function getIndexOfUrl(url)
+
+{
+
+   if (localRipCache == null)
+
+   {
+
+       return -1;
+
+   }
+
+
+
+   for (var i = 0; i < localRipCache.length; i++)
+
+   {
+
+       if (localRipCache[i] != null)
+
+       {
+
+           if (localRipCache[i].url == url)
+
+           {
+
+               return i;
+
+           }
+
+       }
+
+   }
+
+
+
+   return -1;
+
+}
+
+
+
+function doLoadRipDetails(url)
+
+{
+
+    var ripname =  document.getElementById("rip-name");
+
+    var ripurl =  document.getElementById("rip-url");
+
+    var enabledCheckBox =  document.getElementById("ripEnabled");
+
+    var indexOfUrl = getIndexOfUrl(url);
+
+    if (indexOfUrl >= 0)
+
+    {
+
+        currentRipPage = localRipCache[indexOfUrl];
+
+
+
+        ripname.value = currentRipPage.name;
+
+        ripurl.value = currentRipPage.url;
+
+        enabledCheckBox.checked = currentRipPage.enabled;
+
+
+
+        var list =  document.getElementById("ripListXPaths");
+
+
+
+        // Empty the listbox before add any new items to it!
+
+        while(list.hasChildNodes())
+
+        {
+
+            list.removeChild(list.childNodes[0]);
+
+        }
+
+
+
+        for (var j = 0; j < currentRipPage.itemsToRemove.length; j++)
+
+        {
+
+            var xpathText = currentRipPage.itemsToRemove[j];
+
+            var xpathComment = currentRipPage.itemsComment[j];
+
+
+
+            addXPathItemToList(xpathText, xpathComment);
+
+        }
+
+   }
+
+}
+
+
+
+function addXPathItemToList(xpathText, xpathComment)
+
+{
+
+    var list =  document.getElementById("ripListXPaths");
+
+    var newXPath = list.appendItem(xpathText);
+
+
+
+    // If we are given no XPath then use this one!
+
+    if (xpathComment == null || xpathComment == "")
+
+    {
+
+        xpathComment = xpathText;
+
+    }
+
+
+
+    newXPath.setAttribute("tooltiptext", xpathComment);
+
+    newXPath.setAttribute("crop", "start");
+
+}
+
+
+
+function doDeleteXPath()
+
+{
+
+    var list =  document.getElementById("ripListXPaths");
+
+    list.removeItemAt(list.selectedIndex);
+
+
+
+    setDirtyFlag();
+
+
+
+    doXPathSelect();
+
+
+
+    updateCurrentRipPageXPathList(list);
+
+}
+
+
+
+function doEditXPath()
+
+{
+
+    var list =  document.getElementById("ripListXPaths");
+
+    var ripurl =  document.getElementById("rip-url");
+
+    var xpathToEdit = list.selectedItem.label;
+
+    var xpathComment = list.selectedItem.getAttribute("tooltiptext");
+
+    var urlText = ripurl.value;
+
+
+
+    if (xpathComment == xpathToEdit)
+
+    {
+
+       xpathComment = "";
+
+    }
+
+
+
+    window.openDialog("chrome://rip/content/rip-xpath.xul","edit-xpath",  "resizable,centerscreen,modal", xpathToEdit, urlText, false, xpathComment);
+
+}
+
+
+
+function setDirtyFlag()
+
+{
+
+    boolDirty = true;
+
+}
+
+
+
+function setSelectedXPath(value, comment)
+
+{
+
+     var list =  document.getElementById("ripListXPaths");
+
+     list.selectedItem.label = value;
+
+     // If we are given a blank or empty comment us the XPath value
+
+     if (comment == null || comment == "")
+
+     {
+
+        comment = value;
+
+     }
+
+
+
+     list.selectedItem.setAttribute("tooltiptext", comment);
+
+
+
+     updateCurrentRipPageXPathList(list);
+
+
+
+     setDirtyFlag();
+
+}
+
+
+
+function addXPath(xpathText, comment)
+
+{
+
+    addXPathItemToList(xpathText, comment);
+
+
+
+    setDirtyFlag();
+
+
+
+    var list =  document.getElementById("ripListXPaths");
+
+    updateCurrentRipPageXPathList(list);
+
+}
+
+
+
+
+
+function  updateCurrentRipPageXPathList(list)
+
+{
+
+    if (currentRipPage == null)
+
+    {
+
+        return ;
+
+    }
+
+
+
+    currentRipPage.itemsToRemove = new Array();
+
+    currentRipPage.itemsComment = new Array();
+
+
+
+    for (var j = 0; j < list.getRowCount(); j++)
+
+    {
+
+        var xpathText = list.getItemAtIndex(j);
+
+        var xpathValue = xpathText.label;
+
+        var xpathComment = xpathText.getAttribute("tooltiptext");
+
+        if (xpathComment == xpathValue)
+
+        {
+
+            xpathComment = "";
+
+        }
+
+        currentRipPage.itemsToRemove.push(xpathValue);
+
+        currentRipPage.itemsComment.push(xpathComment);
+
+    }
+
+}
+
+
+
+function doAddXPath()
+
+{
+
+    var xpathToEdit = "/";
+
+    var xpathComment = "";
+
+    var ripurl =  document.getElementById("rip-url");
+
+    var urlText = ripurl.value;
+
+
+
+    window.openDialog("chrome://rip/content/rip-xpath.xul","add-xpath",  "resizable,centerscreen,modal", xpathToEdit, urlText, true, xpathComment);
+
+}
+
+
+
+function doOK()
+
+{
+
+   try
+
+   {
+
+       saveBoolSetting( "editmenuUndo", "rip.editmenu.undo");
+
+       saveBoolSetting( "separaterBeforeMenu", "rip.separaterbefore.menu" );
+
+       saveBoolSetting( "separaterAfterMenu", "rip.separaterafter.menu");
+
+       saveBoolSetting( "ripInsideIFrame", "rip.allow.inside.iframes");
+
+       saveBoolSetting( "iframeOnFrameMenu", "rip.iframe.on.framemenu");
+
+       saveBoolSetting( "ripAdvancedMenu", "rip.advanced.context.menu");
+
+       saveBoolSetting( "debugConsole", "rip.debug.alert");
+
+       saveBoolSetting( "blinkInvert", "rip.blink.invert");
+
+
+
+       saveSetting( "borderColour", "rip.blink.border-color");
+
+       saveSetting( "borderWidth", "rip.blink.border-width");
+
+       saveSetting( "blinkDuration", "rip.blink.duration");
+
+       saveSetting( "blinkSpeed", "rip.blink.speed");
+
+
+
+        if (boolDirty)
+
+        {
+
+             onSaveChanges();
+
+        }
+
+   }
+
+   catch (e)
+
+   {
+
+       RemoveItPermanently.handleErrors(e);
+
+   }
+
+   return true;
+
+}
+
+
+
+
+
+
+
+function doCancel()
+
+{
+
+    if (boolDirty)
+
+    {
+
+          if (confirm("Are you sure you want to Cancel these changes?"))
+
+          {
+
+               return true;
+
+          }
+
+          return false;
+
+    }
+
+
+
+    return true;
+
+}
+
+
+
+function onSaveChanges()
+
+{
+
+   try
+
+   {
+
+       window.opener.RemoveItPermanently.setRipCache(localRipCache);
+
+       window.opener.RemoveItPermanently.save();
+
+   }
+
+   catch (e)    // Ignore exceptions here has we
+
+   {
+
+        RemoveItPermanently.setRipCache(localRipCache);
+
+        RemoveItPermanently.save();
+
+   }
+
+}
+
+
+
+function saveBoolSetting(checkBoxName, settingName)
+
+{
+
+    var checkBox = document.getElementById(checkBoxName);
+
+    if (checkBox)
+
+    {
+
+        RipPrefUtils.setPref(settingName, checkBox.checked);
+
+    }
+
+}
+
+
+
+function loadBoolSetting(checkBoxName, settingName)
+
+{
+
+    var checkBox = document.getElementById(checkBoxName);
+
+    if (checkBox)
+
+    {
+
+        checkBox.checked = RipPrefUtils.getPref(settingName);
+
+    }
+
+}
+
+
+
+function saveSetting(checkBoxName, settingName)
+
+{
+
+    var field = document.getElementById(checkBoxName);
+
+    if (field)
+
+    {
+
+        if (field.localName == "textbox")
+
+        {
+
+            RipPrefUtils.setPref(settingName, field.value);
+
+        }
+
+        else if (field.localName == "colorpicker")
+
+        {
+
+            RipPrefUtils.setPref(settingName, field.color);
+
+        }
+
+    }
+
+}
+
+
+
+function loadSetting(fieldName, settingName)
+
+{
+
+    var field = document.getElementById(fieldName);
+
+    if (field)
+
+    {
+
+        if (field.localName == "textbox")
+
+        {
+
+            field.value = RipPrefUtils.getPref(settingName);
+
+        }
+
+        else if (field.localName == "colorpicker")
+
+        {
+
+            field.color = RipPrefUtils.getPref(settingName);
+
+        }
+
+    }
+
+}
+
+
+
+]]>
+
+</script>
+
+</dialog>

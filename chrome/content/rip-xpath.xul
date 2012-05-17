@@ -1,0 +1,413 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://rip/locale/rip.dtd">
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<?xul-overlay href="chrome://rip/content/rip-overlay.xul"?>
+
+
+
+<dialog id="rip-edit-xpath" title="&rip-xpath-title;"
+
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+
+        buttons="accept,cancel"
+
+        persist="screenX screenY width height"
+
+        style="min-width:300px;"
+
+        onload="doLoad();"
+
+        ondialogaccept="return doOK();"
+
+        ondialogcancel="return doCancel();">
+
+
+
+ <script type="application/x-javascript" src="chrome://rip/content/RIPFlasher.js"/>
+
+ <script type="application/x-javascript" src="chrome://rip/content/RipPrefUtils.js"/>
+
+
+
+<script>
+
+<![CDATA[
+
+var flasherArray = new Array();
+
+var addXPath = false;
+
+function doLoad()
+
+{
+
+   var xpathValue = window.arguments[0];
+
+   var urlToUse  = window.arguments[1];
+
+   var xpathComment = window.arguments[3];
+
+   addXPath = window.arguments[2];
+
+
+
+   var ripurl = document.getElementById("rip-url");
+
+   ripurl.value = urlToUse;
+
+
+
+   var ripxpath = document.getElementById("rip-xpath");
+
+   ripxpath.value = xpathValue;
+
+
+
+   var ripxpathcomment = document.getElementById("rip-xpath-comment");
+
+   ripxpathcomment.value = xpathComment;
+
+
+
+   // If the URL does not contain wildcards immediately display!
+
+   if (urlToUse.indexOf("*") < 0)
+
+   {
+
+       idFrame = document.getElementById("idFrame");
+
+       idFrame.setAttribute("src",  urlToUse);
+
+   }
+
+   previousXPath = null;
+
+}
+
+
+
+function doOK()
+
+{
+
+   var ripxpath = document.getElementById("rip-xpath");
+
+   var xpathValue = ripxpath.value;
+
+
+
+   var ripxpathcomment = document.getElementById("rip-xpath-comment");
+
+   var xpathComment = ripxpathcomment.value;
+
+
+
+   if (addXPath)
+
+   {
+
+      window.opener.addXPath(xpathValue, xpathComment);
+
+   }
+
+   else
+
+   {
+
+      window.opener.setSelectedXPath(xpathValue, xpathComment);
+
+   }
+
+
+
+   return true;
+
+}
+
+
+
+function doCancel()
+
+{
+
+    return true;
+
+}
+
+var previousXPath = null;
+
+
+
+function doChangeURL()
+
+{
+
+    var ripurl = document.getElementById("rip-url");
+
+    var urlValue = ripurl.value;
+
+    var idFrame = document.getElementById("idFrame");
+
+    idFrame.setAttribute("src",  urlValue);
+
+}
+
+
+
+function doHighlight()
+
+{
+
+    if (previousXPath != null)
+
+    {
+
+         doChangeBorder(previousXPath, false);
+
+    }
+
+    var ripxpath = document.getElementById("rip-xpath");
+
+    var xpathValue = ripxpath.value;
+
+
+
+    doChangeBorder(xpathValue, true);
+
+
+
+    previousXPath = xpathValue;
+
+}
+
+
+
+function doChangeBorder(xpathQuery, highlight)
+
+{
+
+     var idFrame = document.getElementById("idFrame");
+
+     var contentDoc = idFrame.contentDocument;
+
+     if (contentDoc == null)
+
+     {
+
+        return ;
+
+     }
+
+     try
+
+     {
+
+         var nodesFound = contentDoc.evaluate(xpathQuery, contentDoc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,null);
+
+
+
+         for (var i=0; i < nodesFound.snapshotLength; i++)
+
+         {
+
+             // Highlight the node we find!
+
+             var nodeToHighlight = nodesFound.snapshotItem(i);
+
+
+
+             if (highlight)
+
+             {
+
+                startFlash(nodeToHighlight);
+
+             }
+
+             else
+
+             {
+
+                stopFlash(nodeToHighlight);
+
+             }
+
+         }
+
+         // Only report problems when we are highlighting a particular node!
+
+         if (highlight && nodesFound.snapshotLength == 0)
+
+         {
+
+             alert("We did find any matching nodes?");
+
+         }
+
+     }
+
+     catch (e)
+
+     {
+
+        if (highlight)
+
+        {
+
+            alert(e.message);
+
+        }
+
+        previousXPath = null;
+
+     }
+
+}
+
+
+
+function startFlash(nodeToHighlight)
+
+{
+
+    var flasher = new RIPFlasher();
+
+    flasher.element = nodeToHighlight;
+
+    flasher.start();
+
+
+
+    flasherArray.push(flasher);
+
+/*
+
+    var oldBackColor = nodeToHighlight.style.backgroundColor;
+
+    nodeToHighlight.setAttribute("rip-style-backcolor-backup", oldBackColor);
+
+    nodeToHighlight.style.backgroundColor = 0x00FF00;   // Make this a configurable value!
+
+
+
+    var oldBorderStyle = nodeToHighlight.style.borderStyle;
+
+    nodeToHighlight.setAttribute("rip-style-borderstyle-backup", oldBorderStyle);
+
+    nodeToHighlight.style.borderStyle = "solid"; //
+
+
+
+    var oldBorderWidth = nodeToHighlight.style.borderWidth;
+
+    nodeToHighlight.setAttribute("rip-style-borderwidth-backup", oldBorderWidth);
+
+    nodeToHighlight.style.borderWidth = 3;
+
+*/
+
+}
+
+
+
+function stopFlash(nodeToHightlight)
+
+{
+
+    for (var i=0; i < flasherArray.length; i++)
+
+    {
+
+        flasherArray[i].stop();
+
+    }
+
+     // Reset the flasherArray now that we are finished!
+
+     flasherArray = new Array();
+
+/*
+
+    var oldBackColor = nodeToHighlight.getAttribute("rip-style-backcolor-backup");
+
+    if (oldBackColor != undefined)
+
+    {
+
+        nodeToHighlight.style.backgroundColor = oldBackColor;
+
+    }
+
+
+
+    var oldBorderStyle = nodeToHighlight.getAttribute("rip-style-borderstyle-backup");
+
+    if (oldBorderStyle != undefined)
+
+    {
+
+        nodeToHighlight.style.borderStyle = oldBorderStyle;
+
+    }
+
+
+
+    var oldBorderWidth = nodeToHighlight.getAttribute("rip-style-borderwidth-backup");
+
+    if (oldBorderWidth != undefined)
+
+    {
+
+        nodeToHighlight.style.borderWidth = oldBorderWidth;
+
+    }
+
+*/
+
+}
+
+
+
+]]>
+
+</script>
+
+
+
+    <dialogheader id="ctlHeader" title="&rip-xpath-title;"/>
+
+    <hbox>
+
+       <label control="rip-xpath" value="&rip-xpath-label;"/>
+
+       <textbox id="rip-xpath" style="width:auto; min-width:130px;" flex="1"/>
+
+       <button label="&rip-xpath-highlight;"  onclick="doHighlight();"/>
+
+    </hbox>
+
+    <hbox>
+
+       <label control="rip-xpath-comment" value="&rip-xpath-label-comment;"/>
+
+       <textbox id="rip-xpath-comment" style="width:auto; min-width:130px;" flex="1"/>
+
+    </hbox>
+
+    <hbox>
+
+       <label control="rip-url" value="&rip-url-label;"/>
+
+       <textbox id="rip-url" style="width:auto; min-width:130px;" flex="1"/>
+
+       <button label="&rip-url-select;"  onclick="doChangeURL();"/>
+
+    </hbox>
+
+     <iframe id="idFrame" style="width:auto; min-width:130px;"  flex="1" type="content"/>
+
+</dialog>

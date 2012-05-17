@@ -1,0 +1,122 @@
+<!ENTITY popup-rip "Permanent entfernen">
+
+<!ENTITY popup-rip-iframe "IFrame permanent entfernen">
+
+<!ENTITY popup-rip-custom "RIP Erweitert">
+
+<!ENTITY popup-rip-this-page-only "Nur von dieser Seite entfernen">
+
+<!ENTITY popup-rip-all-similar-pages "Von allen gleichen Seiten entfernen">
+
+<!ENTITY popup-rip-all-website "Von dieser Webseite entfernen">
+
+<!ENTITY popup-rip-all-domain "Von dieser Domain entfernen">
+
+<!ENTITY popup-undo-rip "Letzten RIP rückgängig">
+
+<!ENTITY rip-page-matched "Seite stimmt überein mit:">
+
+<!ENTITY options-rip "Optionen...">
+
+<!ENTITY rip-summary-prompt "XPath Anzahl:">
+
+<!ENTITY rip-page-stats "Anzahl der passenden und entfernten HTML Elemente:">
+
+<!ENTITY showall-rip "Alle versteckten Objekte anzeigen">
+
+<!ENTITY undo-all-rips "Seite nicht verändern">
+
+<!ENTITY publish-rip "Publizieren">
+
+<!ENTITY subscribe-rip "Abonnieren">
+
+<!ENTITY rip-options "RIP Optionen">
+
+<!ENTITY rip-xpath-tooltip "Verwende den Quelltext einer Seite um Merkmale zu finden die mehrere gleiche Bereiche identifizieren. Zum Beispiel: <b>class='ad'<b> Dann verwendeter XPath: //class='ad' ">
+
+<!ENTITY rip-xpath-highlight "Highlight">
+
+<!ENTITY rip-xpath-title "Verwende diese Anzeige um den XPath Ausdruck zu editieren und zu testen">
+
+<!ENTITY rip-xpath-label "XPath:">
+
+<!ENTITY rip-xpath-label-comment "Comment:">
+
+<!ENTITY rip-url-label "Anwenden auf Seite:">
+
+<!ENTITY rip-url-select "Anzeigen">
+
+<!ENTITY rip-options-title "Rips verwalten">
+
+<!ENTITY rip-options-header "Verwende diese Anzeige um deine RIP's zu verwalten">
+
+<!ENTITY rip-options-rips-caption "RIPs (Seiten mit entfernten Elementen):">
+
+<!ENTITY rip-options-rips-remove "Rip entfernen">
+
+<!ENTITY rip-options-rips-export "Rip exportieren...">
+
+<!ENTITY rip-options-rips-import "Rip importieren...">
+
+<!ENTITY rip-options-rips-enable "RIP aktivieren">
+
+<!ENTITY rip-options-rips-name "Name:">
+
+<!ENTITY rip-options-rips-url "URL:">
+
+<!ENTITY rip-options-rips-description "Hinweis: Verwende Platzhalter * in einer URL um mehrere Seiten zusammenzufassen. z.B. *.yahoo.de">
+
+<!ENTITY rip-options-rips-xpath-caption "XPath um Elemente zu entfernen: ">
+
+<!ENTITY rip-options-rips-xpath-edit "XPath editieren...">
+
+<!ENTITY rip-options-rips-xpath-add "XPath hinzufügen...">
+
+<!ENTITY rip-options-rips-xpath-remove "XPath entfernen">
+
+<!ENTITY rip-current-rips-label "Aktuelle RIPs">
+
+<!ENTITY rip-preferences-label "Einstellungen">
+
+<!ENTITY rip-menu-preferences "Menü Einstellungen">
+
+<!ENTITY rip-menu-preferences-editmenuUndo "Zeige im Editiermenü 'Letzten RIP rückgängig'">
+
+<!ENTITY rip-menu-preferences-ripInsideIFrame "RIP in IFrame erlauben.">
+
+<!ENTITY rip-menu-preferences-ripInsideIFrameNote "Hinweis: Status Symbol zeigt nicht entfernten Inhalt an">
+
+<!ENTITY rip-menu-preferences-ripIframeOnFrameMenu "Zeige 'IFrame permanent entfernen' in einem seperaten Menüfenster">
+
+<!ENTITY rip-menu-preferences-ripAdvancedMenu "Zeige 'RIP Erweitert' im Kontextmenü">
+
+<!ENTITY rip-menu-preferences-separatorBeforeMenu "Hinzufügen einer Trennlinie vor dem RIP Kontextmenü">
+
+<!ENTITY rip-menu-preferences-separatorAfterMenu "Hinzufügen einer Trennlinie nach dem RIP Kontextmenü">
+
+<!ENTITY rip-menu-preferences-debugging "Debugging Einstellungen">
+
+<!ENTITY rip-menu-preferences-debugConsole "Zeige Fehlermeldungen in einem Konsolenfenster anstatt in einem Popup Fenster">
+
+<!ENTITY rip-menu-preferences-highlighter "XPath Highlight-Einstellungen">
+
+<!ENTITY rip-menu-preferences-highlighter-borderColour "Rahmenfarbe:">
+
+<!ENTITY rip-menu-preferences-highlighter-borderWidth "Rahmenbreite:">
+
+<!ENTITY rip-menu-preferences-highlighter-blinkDuration "Blinkdauer:">
+
+<!ENTITY rip-menu-preferences-highlighter-blinkSpeed "Blinkgeschwindigkeit:">
+
+<!ENTITY rip-menu-preferences-highlighter-blinkInvert "Blinken umkehren:">
+
+<!ENTITY rip-options-wiki-site "Klick hier um weitere zu finden">
+
+<!ENTITY download-popup-rip "Download RIP">
+
+<!ENTITY popup-rip-remove-all-iframes "'IFrames' entfernen">
+
+<!ENTITY popup-rip-remove-google-adsense "'Google AdSense' entfernen">
+
+
+

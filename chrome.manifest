@@ -1,0 +1,11 @@
+overlay	chrome://browser/content/browser.xul	chrome://rip/content/rip-overlay.xul
+
+content     rip    chrome/content/
+
+skin	rip	classic/1.0	chrome/skin/classic/rip/
+style	chrome://global/content/customizeToolbar.xul	chrome/skin/rip/skin/overlay.css
+
+locale	rip	en-US	chrome/locale/en-US/rip/
+locale	rip	it-IT	chrome/locale/it-IT/rip/
+locale	rip	de-DE	chrome/locale/de-DE/rip/
+locale	rip	fr-FR	chrome/locale/fr-FR/rip/
